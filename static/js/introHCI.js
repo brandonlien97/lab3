@@ -13,13 +13,6 @@ function initializePage() {
 		$('.jumbotron h1').text("Experience Chan! It's not a lot of questions.");
 		$("#testjs").text("Please wait...");
 		$(".jumbotron p").toggleClass("active");
-		var containingJumbotron = $(this).closest(".jumbotron");
-    	var description = $(containingJumbotron).find(".project-description");
-    	if (description.length == 0) {
-   		    $(containingJumbotron).append("<div class='project-description'><p>Description of the jumbotron.</p></div>");
-    	} else {
-    	   description.html("<p>Stop clicking on me! You just did it at " + (new Date()) + "</p>");
-    	}
 	});
 
 	// Add any additional listeners here
