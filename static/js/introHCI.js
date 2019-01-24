@@ -10,9 +10,52 @@ $(document).ready(function() {
  */
 function initializePage() {
 	$("#testjs").click(function(e) {
-		$('.jumbotron h1').text("Javascript is connected");
+		$('.jumbotron h1').text("Experience Chan! It's not a lot of questions.");
+		$("#testjs").text("Please wait...");
+		$(".jumbotron p").toggleClass("active");
+		var containingJumbotron = $(this).closest(".jumbotron");
+    	var description = $(containingJumbotron).find(".project-description");
+    	if (description.length == 0) {
+   		    $(containingJumbotron).append("<div class='project-description'><p>Description of the jumbotron.</p></div>");
+    	} else {
+    	   description.html("<p>Stop clicking on me! You just did it at " + (new Date()) + "</p>");
+    	}
 	});
 
 	// Add any additional listeners here
 	// example: $("#div-id").click(functionToCall);
+
+	$("a.thumbnail").click(projectClick);
 }
+
+function projectClick(e) {
+	console.log("Project clicked");
+    // prevent the page from reloading      
+    e.preventDefault();
+    // In an event handler, $(this) refers to      
+    // the object that triggered the event      
+    $(this).css("background-color", "#7fff00");
+
+    var containingProject = $(this).closest(".project");
+    var description = $(containingProject).find(".project-description");
+    if (description.length == 0) {
+       $(containingProject).append("<div class='project-description'><p>Description of the project.</p></div>");
+    } else {
+       description.html("<p>Stop clicking on me! You just did it at " + (new Date()) + "</p>");
+    }
+}
+
+console.log('hehe');
+$("#myElement").click(changeText);
+  
+function changeText(event){
+    $(this).text("Changed text");
+}
+
+$(".description").click(function(e) {
+	$(this).toggleClass("active");
+});
+
+$("#lorempixel.people.1").animate({
+	"width": 500
+}, 1000);
